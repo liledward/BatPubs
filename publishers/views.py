@@ -11,20 +11,23 @@ from .models import Publisher, Category
 from .models import Publisher
 # Create your views here.
 
+
 class PublisherListView(ListView):
     def get_queryset(self):
         slug = self.kwargs.get("slug")
         if slug:
             queryset = Publisher.objects.filter(
-                    Q(category__iexact=slug) |
-                    Q(category__icontains=slug)
-                )
+                Q(category__iexact=slug) |
+                Q(category__icontains=slug)
+            )
         else:
             queryset = Publisher.objects.all().order_by("-timestamp")
         return queryset
 
+
 class PublisherDetailView(DetailView):
     queryset = Publisher.objects.all()
+
 
 class PublisherCreateView(CreateView):
     form_class = PublisherCreateForm
@@ -35,22 +38,26 @@ class PublisherCreateView(CreateView):
         kwargs['object_list'] = Publisher.objects.order_by('id')[:10]
         return super(PublisherCreateView, self).get_context_data(**kwargs)
 
+
 class PublisherUpdateView(UpdateView):
     model = Publisher
-    fields = ['name', 'description', 'category']
+    fields = ['name', 'category', 'description', ]
     template_name = 'publishers/update.html'
+    success_url = '/'
+
 
 class CategoryListView(ListView):
     def get_queryset(self):
         slug = self.kwargs.get("title")
         if slug:
             queryset = Publisher.objects.filter(
-                    Q(category__iexact=slug) |
-                    Q(category__icontains=slug)
-                )
+                Q(category__iexact=slug) |
+                Q(category__icontains=slug)
+            )
         else:
             queryset = Category.objects.all()
         return queryset
+
 
 class PubCategoryListlView(ListView):
     def get_queryset(self):
