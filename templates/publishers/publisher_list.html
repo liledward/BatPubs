@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Publisher List </h2>
+
+{% for obj in object_list %}
+  <li><a href="/{{ obj.slug }}">{{ obj.name }}</a></li>
+{% endfor %}
+</ul>
+
+
+{% endblock %}
