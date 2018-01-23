@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SECRET_KEY = 'fh%ph!L83s-^crxd_m#5m+$unko3*j1-emf@8=^!fb&9$%a!#!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['www.batpubs.com', 'batpubs.com']
 
