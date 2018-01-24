@@ -32,7 +32,7 @@ class PublisherCreateView(CreateView):
     success_url = '/publishers/'
 
     def get_context_data(self, **kwargs):
-        kwargs['object_list'] = Publisher.objects.order_by('traffic')[:10]
+        kwargs['object_list'] = Publisher.objects.order_by('traffic')
         return super(PublisherCreateView, self).get_context_data(**kwargs)
 
 
