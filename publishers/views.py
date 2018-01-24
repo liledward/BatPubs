@@ -21,8 +21,8 @@ class PublisherListView(ListView):
                 Q(category__icontains=slug)
             )
         else:
-            queryset = Publisher.objects.all().order_by("traffic").order_by('traffic')
-        return queryset
+            queryset = Publisher.objects.all()
+        return queryset.order_by("traffic")
 
 
 class PublisherDetailView(DetailView):
