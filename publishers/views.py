@@ -21,7 +21,7 @@ class PublisherListView(ListView):
                 Q(category__icontains=slug)
             )
         else:
-            queryset = Publisher.objects.all().order_by("-timestamp")
+            queryset = Publisher.objects.all().order_by("popularity_rank")
         return queryset
 
 
@@ -35,7 +35,7 @@ class PublisherCreateView(CreateView):
     success_url = '/publishers/'
 
     def get_context_data(self, **kwargs):
-        kwargs['object_list'] = Publisher.objects.order_by('id')[:10]
+        kwargs['object_list'] = Publisher.objects.order_by('popularity_rank')[:10]
         return super(PublisherCreateView, self).get_context_data(**kwargs)
 
 

@@ -8,7 +8,7 @@
 
 {% for obj in object_list %}
 <div class="card">
-  <h4 class="card-header">{{ obj.name }}</h4>
+  <h4 class="card-header">{{ obj.name }} <small>(Alexa Traffick Rank: {{ obj.popularity_rank }})</small></h4>
   <div class="card-body">
     <p class="card-text">{{ obj.description }} <a href="{{ obj.slug }}"> (learn more)</a></p>
     <a href="{{ obj.website_address }}"><button type="button" class="btn btn-outline-primary">View Site</button></a>
