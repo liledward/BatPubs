@@ -41,7 +41,7 @@
        <div class="tab-pane" id="profile" role="tabpanel">
          <br>
          {% for obj in object_list %}
-         {% if obj.category.title == 'Youtube' %}
+         {% if obj.category.slug == 'youtube' %}
          <div class="card">
            <h4 class="card-header">{{ obj.name }}</h4>
            <div class="card-body">
