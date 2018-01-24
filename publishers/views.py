@@ -21,7 +21,7 @@ class PublisherListView(ListView):
                 Q(category__icontains=slug)
             )
         else:
-            queryset = Publisher.objects.all().order_by("popularity_rank")
+            queryset = Publisher.objects.all().order_by("traffic")
         return queryset
 
 
@@ -36,7 +36,7 @@ class PublisherCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         kwargs['object_list'] = Publisher.objects.filter(
-            category__title__iexact='website').order_by('popularity_rank')[:10]
+            category__title__iexact='website').order_by('traffic')[:10]
         return super(PublisherCreateView, self).get_context_data(**kwargs)
 
 

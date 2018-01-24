@@ -24,6 +24,7 @@ class Publisher(models.Model):
     updated = models.DateTimeField(auto_now=True)
     slug = models.SlugField(blank=True)
     popularity_rank = models.IntegerField(default=None, null=True)
+    traffic = models.IntegerField(default=None, null=True)
 
     def save(self, *args, **kwargs):
         full_url = self.website_address
@@ -35,9 +36,9 @@ class Publisher(models.Model):
         soup = BeautifulSoup(data, 'xml')
         try:
             add = soup.find("POPULARITY")['TEXT']
-            self.popularity_rank = int(add)
+            self.traffic = int(add)
         except:
-            self.popularity_rank = None
+            self.traffic = None
 
         super(Publisher, self).save(*args, **kwargs)
 
