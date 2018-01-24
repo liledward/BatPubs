@@ -5,7 +5,7 @@
 <h2>Publisher List </h2>
 
 {% for obj in object_list %}
-  <li><a href="/{{ obj.slug }}">{{ obj.name }} ( traffick rank:{{ obj.popularity_rank }})</a></li>
+  <li><a href="/{{ obj.slug }}">{{ obj.name }} (Alexa Traffic rank: {{ obj.popularity_rank }})</a></li>
 {% endfor %}
 </ul>
 
