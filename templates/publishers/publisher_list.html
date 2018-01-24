@@ -4,10 +4,23 @@
 
 <h2>Publisher List </h2>
 
-{% for obj in object_list %}
-  <li><a href="/{{ obj.slug }}">{{ obj.name }} (Alexa Traffic rank: {{ obj.traffic }})</a></li>
-{% endfor %}
-</ul>
-
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Traffic Rank</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for obj in object_list %}
+    <tr>
+      <th scope="row">1</th>
+      <td>a href="/{{ obj.slug }}">{{ obj.name }}</a></td>
+      <td>{{ obj.traffic }}</td>
+  {% endfor %}
+    </tr>
+  </tbody>
+</table>
 
 {% endblock %}
