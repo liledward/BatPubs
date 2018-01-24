@@ -23,7 +23,7 @@ class Publisher(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     slug = models.SlugField(blank=True)
-    popularity_rank = models.IntegerField(default=None, null=True)
+    popularity_rank = models.CharField(max_length=120, default=None, null=True)
     traffic = models.IntegerField(default=None, null=True)
 
     def save(self, *args, **kwargs):
