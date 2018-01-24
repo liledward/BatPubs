@@ -16,10 +16,7 @@ class PublisherListView(ListView):
     def get_queryset(self):
         slug = self.kwargs.get("slug")
         if slug:
-            queryset = Publisher.objects.filter(
-                Q(category__iexact=slug) |
-                Q(category__icontains=slug)
-            )
+            queryset = Publisher.objects.filter(Q(category__iexact=slug))
         else:
             queryset = Publisher.objects.all()
         return queryset.order_by("traffic")
