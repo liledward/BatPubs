@@ -16,13 +16,13 @@ class Category(models.Model):
 
 
 class Publisher(models.Model):
-    name = models.CharField(max_length=120)
+    name = models.CharField(max_length=120, unique=True)
     category = models.ForeignKey(Category)
     description = models.TextField(max_length=600)
-    website_address = models.URLField(max_length=200)
+    website_address = models.URLField(max_length=200, unique=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    slug = models.SlugField(blank=True)
+    slug = models.SlugField(blank=True, unique=True)
     popularity_rank = models.CharField(max_length=120, default=None, null=True)
     traffic = models.IntegerField(default=None, null=True)
 
