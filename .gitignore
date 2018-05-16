@@ -8,6 +8,7 @@ local_settings.py
 local.py
 public/static
 public/media
+.gitignore
 
 ## SQLite3
 *.sqlite3
@@ -44,4 +45,5 @@ auto-save-list
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml
+!.elasticbeanstalk/*.global.ym
+.ebextensions
